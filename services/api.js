@@ -19,7 +19,11 @@ define(function(require, exports, module){
 
     ApiService.prototype.loadHostedLibraries = function(){
         _.each(this.providers, function(provider){
-            provider.loadHostedLibraries();
+            provider.loadHostedLibraries().success(function(data){
+                provider.processHostedLibraries(data);
+            }).error(function(err){
+                throw new Error(err);
+            });
         });
     }
 

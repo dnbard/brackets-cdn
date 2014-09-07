@@ -1,5 +1,82 @@
+.ext_cdn{
+    width: 90%;
+    height: 90%;
+    overflow-y: hidden !important;
+}
+
+.ext_cdn .modal-body{
+    max-height: none;
+    overflow-y: hidden;
+    height: calc(100% - 57px);
+    padding: 0;
+    position: relative;
+}
+
+.ext_cdn .slogan{
+    margin: -5px inherit;
+}
+
 .ext_cdn #btnCdnClose{
     position: absolute;
     top: 5px;
     right: 5px;
+}
+
+.ext_cdn input.search_query{
+    width: 100%;
+    padding: 1px 13px;
+    box-sizing: border-box;
+}
+
+.ext_cdn libraries{
+    height: calc(100% - 23px);
+    overflow-y: auto;
+    padding: 1px 13px;
+    display: block;
+}
+
+.ext_cdn library{
+    margin: 10px 0;
+    position: relative;
+    display: block;
+    border: 1px solid rgba(192, 201, 206, 0.3);
+    border-radius: 5px;
+    padding: 3px 8px;
+}
+
+.ext_cdn library-name{
+    color: #6bbeff;
+    padding-left: 5px;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 35px;
+    line-height: 40px;
+    display: inline-block;
+}
+
+.ext_cdn library description{
+    display: block;
+}
+
+.ext_cdn library author{
+    display: inline-block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    border-radius: 0px 5px 0px 5px;
+    border-left: 1px solid rgba(192, 201, 206, 0.3);
+    border-bottom: 1px solid rgba(192, 201, 206, 0.3);
+    padding: 5px 13px;
+    font-size: 16pt;
+}
+
+.ext_cdn library author > a:hover{
+    text-decoration: none;
+}
+
+.ext_cdn .libs_count{
+    position: absolute;
+    display: inline-block;
+    top: 3px;
+    right: 10px;
+    color: black;
 }

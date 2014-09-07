@@ -1,8 +1,27 @@
 <div class="ext_cdn modal">
     <div class="modal-header">
         <h3>CDN Finder</h3>
+        <p class="muted slogan">Search for javascript libraries, jQuery plugins, fonts, CSS frameworks and anything else you might need.</p>
         <button id="btnCdnClose" class="dialog-button btn primary" data-button-id="ok">X</button>
     </div>
     <div class="modal-body">
+        <input class="search_query" placeholder="What are you looking for?" data-bind="value: query, valueUpdate: 'keyup'"/>
+        <div class="libs_count" data-bind="text: librariesCountLabel"></div>
+        <libraries data-bind="foreach: libraries">
+            <library>
+                <library-name data-bind="text: name"></library-name>
+                <version data-bind="text: lastversion"></version>
+                <description data-bind="text: description"></description>
+                <author>
+                    <author-name data-bind="text: author"></author-name>
+                    <a data-bind="visible: github, attr:{href: github}">
+                        <icon class="fa fa-github"></icon>
+                    </a>
+                    <a data-bind="visible: homepage, attr:{href: homepage}">
+                        <icon class="fa fa-globe"></icon>
+                    </a>
+                </author>
+            </library>
+        </libraries>
     </div>
 </div>

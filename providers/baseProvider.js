@@ -9,5 +9,9 @@ define(function(require, exports, module){
         });
     }
 
+    BaseProvider.prototype.processHostedLibraries = function(){
+        throw new Error('Not implemented');
+    }
+
     module.exports = BaseProvider;
 });
