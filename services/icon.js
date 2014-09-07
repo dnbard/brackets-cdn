@@ -5,9 +5,10 @@ define(function(require, exports, module){
 
     function init(){
         var imagePath = config.path + 'images/icon.png';
-        icon = $('<a id="'+ id +'"></a>');
-        //icon.css('background', 'url(' + config.path + 'images/icon.png)');
-        icon.css('background', 'red');
+        icon = $('<a class="fa fa-archive" id="'+ id +'"></a>');
+
+        icon.css('color', '#BBBABA');
+        icon.css('font-size', '18pt');
         icon.appendTo($("#main-toolbar .buttons"));
     }
 

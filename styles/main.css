@@ -2,6 +2,11 @@
     width: 90%;
     height: 90%;
     overflow-y: hidden !important;
+    box-shadow: 0 0 2px white;
+}
+
+.ext_cdn h3.logo{
+    cursor: pointer;
 }
 
 .ext_cdn .modal-body{
@@ -51,9 +56,10 @@
     font-size: 35px;
     line-height: 40px;
     display: inline-block;
+    cursor: pointer;
 }
 
-.ext_cdn library description{
+.ext_cdn description{
     display: block;
 }
 
@@ -73,10 +79,42 @@
     text-decoration: none;
 }
 
+.ext_cdn assets input{
+    width: 98%;
+    margin: 2px 8px;
+    box-sizing: border-box;
+    background: transparent;
+    color: inherit;
+    border: 0px solid;
+    cursor: text;
+}
+
 .ext_cdn .libs_count{
     position: absolute;
     display: inline-block;
     top: 3px;
     right: 10px;
     color: black;
+}
+
+.ext_cdn .cdn-files{
+    border: 1px solid rgba(192, 201, 206, 0.3);
+    border-radius: 5px;
+    margin: 6px 0;
+}
+
+.ext_cdn .cdn-files_header{
+    border-bottom: 1px solid rgba(192, 201, 206, 0.3);
+    padding: 0 8px;
+}
+
+.ext_cdn page{
+    display: block;
+    position: relative;
+    height: 100%;
+}
+
+.ext_cdn page#library{
+    padding: 1px 13px;
+    overflow-y: auto;
 }

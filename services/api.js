@@ -27,5 +27,13 @@ define(function(require, exports, module){
         });
     }
 
+    ApiService.prototype.getFileUrl = function(asset, library){
+        if (!this.providers[asset.provider]){
+            throw new Error('Unregistered provider');
+        }
+
+        return this.providers[asset.provider].getFileUrl(asset.file, asset.version, library.name);
+    }
+
     module.exports = new ApiService();
 });

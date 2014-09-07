@@ -1,18 +1,47 @@
 <div class="ext_cdn modal">
     <div class="modal-header">
-        <h3>CDN Finder</h3>
+        <h3 class="logo" data-bind="click: toMasterPage"><i class="fa fa-archive"></i>CDN Finder</h3>
         <p class="muted slogan">Search for javascript libraries, jQuery plugins, fonts, CSS frameworks and anything else you might need.</p>
         <button id="btnCdnClose" class="dialog-button btn primary" data-button-id="ok">X</button>
     </div>
-    <div class="modal-body">
-        <input class="search_query" placeholder="What are you looking for?" data-bind="value: query, valueUpdate: 'keyup'"/>
-        <div class="libs_count" data-bind="text: librariesCountLabel"></div>
-        <libraries data-bind="foreach: libraries">
-            <library>
-                <library-name data-bind="text: name"></library-name>
-                <version data-bind="text: lastversion"></version>
-                <description data-bind="text: description"></description>
-                <author>
+    <div class="modal-body" data-bind="click: clickDelegate">
+        <page data-bind="visible: page() === 'master'">
+            <input class="search_query" placeholder="What are you looking for?" data-bind="value: query, valueUpdate: 'keyup'"/>
+            <div class="libs_count" data-bind="text: librariesCountLabel"></div>
+            <libraries data-bind="foreach: libraries">
+                <library>
+                    <library-name data-bind="text: name"></library-name>
+                    <version data-bind="text: lastversion"></version>
+                    <description data-bind="text: description"></description>
+                    <author>
+                        <author-name data-bind="text: author"></author-name>
+                        <a data-bind="visible: github, attr:{href: github}">
+                            <icon class="fa fa-github"></icon>
+                        </a>
+                        <a data-bind="visible: homepage, attr:{href: homepage}">
+                            <icon class="fa fa-globe"></icon>
+                        </a>
+                    </author>
+                    <div class="cdn-files">
+                        <div class="cdn-files_header">
+                            <span>CDN Files</span>
+                        </div>
+                        <assets data-bind="with: $parent.getAsset($data)">
+                            <input data-attr="input" data-bind="value: $root.getFileUrl($data, $parent)" disabled="disabled"/>
+                        </assets>
+                    </div>
+                </library>
+            </libraries>
+        </page>
+        <page id="library" data-bind="visible: page() === 'library', if: library.element">
+            <library data-bind="with: library">
+                <div>
+                    <library-name data-bind="text: element().name"></library-name>
+                    <select data-bind="value: version, foreach: versions">
+                        <option data-bind="attr:{value: version}, text: version"></option>
+                    </select>
+                </div>
+                <author data-bind="with: element">
                     <author-name data-bind="text: author"></author-name>
                     <a data-bind="visible: github, attr:{href: github}">
                         <icon class="fa fa-github"></icon>
@@ -21,7 +50,28 @@
                         <icon class="fa fa-globe"></icon>
                     </a>
                 </author>
+                <description data-bind="text: element().description"></description>
+                <div class="cdn-files">
+                    <div class="cdn-files_header">
+                        <span>CDN Files</span>
+                        <span>(mainfile:</span>
+                        <span data-bind="text: element().mainfile"></span>
+                        <span>)</span>
+                    </div>
+                    <assets data-bind="foreach: $root.getAssets(element(), version())">
+                        <input data-attr="input" data-bind="value: $root.getFileUrl($data, $parent.element())" disabled="disabled"/>
+                    </assets>
+                </div>
+                <div class="cdn-files" data-bind="visible: selectedUrl">
+                    <div class="cdn-files_header">
+                        Paste this to HTML
+                    </div>
+                    <assets>
+                        <input data-attr="url" data-bind="value: selectedUrlCaption" disabled="disabled">
+                    </assets>
+                </div>
+                <div class="muted">Hint: click on line and press CTRL+C to copy it to the clipboard.</div>
             </library>
-        </libraries>
+        </page>
     </div>
 </div>

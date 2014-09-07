@@ -7,6 +7,7 @@ define(function(require, exports, module){
     function JsDelivrProvider(){
         this.api.hostedLibraries = 'http://api.jsdelivr.com/v1/jsdelivr/libraries';
         this.name = 'jsDelivr';
+        this.urlPrefix = 'http://cdn.jsdelivr.net/';
     }
 
     JsDelivrProvider.prototype = new BaseProvider();
