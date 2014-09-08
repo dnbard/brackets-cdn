@@ -7,7 +7,8 @@ define(function(require, exports, module){
     ExtensionUtils.loadStyleSheet(module, 'http://cdn.jsdelivr.net/fontawesome/4.2.0/css/font-awesome.css');
 
     iconService.init();
-    iconService.click(require('./services/modal').showHandler);
 
-    API.loadHostedLibraries();
+    API.loadHostedLibraries().then(function(){
+        iconService.click(require('./services/modal').showHandler);
+    });
 });

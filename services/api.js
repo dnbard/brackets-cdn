@@ -1,6 +1,7 @@
 define(function(require, exports, module){
     var libs = require('./libraryProvider'),
         _ = libs.require('lodash'),
+        q = libs.require('q'),
         JsDelivrProvider = require('../providers/jsDelivr');
 
     function ApiService(){
@@ -18,13 +19,33 @@ define(function(require, exports, module){
     }
 
     ApiService.prototype.loadHostedLibraries = function(){
+        function checkLoadingState(){
+            if (providerCount === libsLoaded){
+                defer.resolve();
+            }
+        }
+
+        var providerCount = _.size(this.providers),
+            libsLoaded = 0,
+            defer = q.defer();
+
         _.each(this.providers, function(provider){
             provider.loadHostedLibraries().success(function(data){
                 provider.processHostedLibraries(data);
+
+                libsLoaded ++;
+                checkLoadingState();
             }).error(function(err){
+                libsLoaded ++;
+                checkLoadingState();
+
                 throw new Error(err);
             });
         });
+
+        checkLoadingState();
+
+        return defer.promise;
     }
 
     ApiService.prototype.getFileUrl = function(asset, library){

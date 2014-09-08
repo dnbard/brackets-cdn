@@ -7,7 +7,7 @@ define(function(require, exports, module){
         var imagePath = config.path + 'images/icon.png';
         icon = $('<a class="fa fa-archive" id="'+ id +'"></a>');
 
-        icon.css('color', '#BBBABA');
+        icon.css('color', 'red');
         icon.css('font-size', '18pt');
         icon.appendTo($("#main-toolbar .buttons"));
     }
@@ -17,6 +17,7 @@ define(function(require, exports, module){
             throw new Error('Icon is not initialized');
         }
         icon.on('click', handler);
+        icon.css('color', '#BBBABA');
     }
 
     exports.init = init;
