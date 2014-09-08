@@ -81,6 +81,10 @@ define(function(require, exports, module){
             self.page('master');
         }
 
+        this.toAboutPage = function(){
+            self.page('about');
+        }
+
         this.clickDelegate = function(model, event){
             var tag = event.target.tagName,
                 target = $(event.target);

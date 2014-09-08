@@ -1,6 +1,13 @@
 <div class="ext_cdn modal">
     <div class="modal-header">
-        <h3 class="logo" data-bind="click: toMasterPage"><i class="fa fa-archive"></i>CDN Finder</h3>
+        <h3 class="logo" data-bind="click: toMasterPage">
+            <i class="fa fa-cogs"></i>
+            <span>CDN Finder</span>
+        </h3>
+        <h3>
+            <i title="Back to main page" class="fa fa-home" data-bind="click: toMasterPage, css:{disabled: page() === 'master'}"></i>
+            <i title="About this extension" class="fa fa-question" data-bind="click: toAboutPage, css:{disabled: page() === 'about'}"></i>
+        </h3>
         <p class="muted slogan">Search for javascript libraries, jQuery plugins, fonts, CSS frameworks and anything else you might need.</p>
         <button id="btnCdnClose" class="dialog-button btn primary" data-button-id="ok">X</button>
     </div>

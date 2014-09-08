@@ -5,7 +5,7 @@ define(function(require, exports, module){
 
     function init(){
         var imagePath = config.path + 'images/icon.png';
-        icon = $('<a class="fa fa-archive" id="'+ id +'"></a>');
+        icon = $('<a class="fa fa-cogs" id="'+ id +'"></a>');
 
         icon.css('color', 'red');
         icon.css('font-size', '18pt');

@@ -5,8 +5,23 @@
     box-shadow: 0 0 2px white;
 }
 
-.ext_cdn h3.logo{
+.ext_cdn .modal-header h3{
     cursor: pointer;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.ext_cdn .modal-header .fa{
+    transition: 0.25s all;
+}
+
+.ext_cdn .modal-header .fa:hover{
+    color: #288cdf;
+    opacity: 0.85;
+}
+
+.ext_cdn .modal-header .fa.disabled, .ext_cdn .modal-header .fa.disabled:hover{
+    color: #288cdf;
 }
 
 .ext_cdn .modal-body{
