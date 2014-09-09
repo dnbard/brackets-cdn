@@ -6,6 +6,9 @@
         </h3>
         <h3>
             <i title="Back to main page" class="fa fa-home" data-bind="click: toMasterPage, css:{disabled: page() === 'master'}"></i>
+            <a href="https://github.com/jsdelivr/jsdelivr#how-to-submit-or-update-projects">
+                <i title="Submit new library to CDN" class="fa fa-plus"></i>
+            </a>
             <i title="About this extension" class="fa fa-question" data-bind="click: toAboutPage, css:{disabled: page() === 'about'}"></i>
         </h3>
         <p class="muted slogan">Search for javascript libraries, jQuery plugins, fonts, CSS frameworks and anything else you might need.</p>
@@ -35,6 +38,10 @@
                         </div>
                         <assets data-bind="with: $parent.getAsset($data)">
                             <input data-attr="input" data-bind="value: $root.getFileUrl($data, $parent)" disabled="disabled"/>
+                            <div class="asset-panel" data-bind="attr:{ dataUrl: $root.getFileUrl($data, $parent) }">
+                                <a data-option="copy" href="#" class="fa fa-files-o" title="Copy URL to clipboard"></a>
+                                <a data-option="download" href="#" class="fa fa-floppy-o" title="Save file to disk"></a>
+                            </div>
                         </assets>
                     </div>
                 </library>
@@ -79,6 +86,9 @@
                 </div>
                 <div class="muted">Hint: click on line and press CTRL+C to copy it to the clipboard.</div>
             </library>
+        </page>
+        <page id="about" data-bind="visible: page() === 'about'">
+            <div>This extension is created by A</div>
         </page>
     </div>
 </div>

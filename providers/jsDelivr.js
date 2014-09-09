@@ -35,9 +35,6 @@ define(function(require, exports, module){
                 });
             });
         });
-
-        console.log(storage);
-        console.log(libraries);
     }
 
     module.exports = JsDelivrProvider;
