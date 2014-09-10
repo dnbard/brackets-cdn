@@ -107,6 +107,7 @@
     position: absolute;
     display: none;
     top: -2px;
+    left: 1px;
     border-radius: 2px;
     padding: 2px 5px;
     box-shadow: none;
@@ -163,4 +164,13 @@
 .ext_cdn page#library, .ext_cdn page#about{
     padding: 1px 13px;
     overflow-y: auto;
+}
+
+.ext_cdn page#about{
+    font-size: 16pt;
+}
+
+.ext_cdn page#about > div{
+    margin: 5px 0 17px 0;
+    line-height: 24px;
 }

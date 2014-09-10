@@ -5,11 +5,9 @@
             <span>CDN Finder</span>
         </h3>
         <h3>
-            <i title="Back to main page" class="fa fa-home" data-bind="click: toMasterPage, css:{disabled: page() === 'master'}"></i>
-            <a href="https://github.com/jsdelivr/jsdelivr#how-to-submit-or-update-projects">
-                <i title="Submit new library to CDN" class="fa fa-plus"></i>
-            </a>
-            <i title="About this extension" class="fa fa-question" data-bind="click: toAboutPage, css:{disabled: page() === 'about'}"></i>
+            <a title="Back to main page" class="fa fa-home" data-bind="click: toMasterPage, css:{disabled: page() === 'master'}" href="#"></a>
+            <a href="https://github.com/jsdelivr/jsdelivr#how-to-submit-or-update-projects" class="fa fa-plus" title="Submit new library to CDN" ></a>
+            <a href="#" title="About this extension" class="fa fa-question" data-bind="click: toAboutPage, css:{disabled: page() === 'about'}"></a>
         </h3>
         <p class="muted slogan">Search for javascript libraries, jQuery plugins, fonts, CSS frameworks and anything else you might need.</p>
         <button id="btnCdnClose" class="dialog-button btn primary" data-button-id="ok">X</button>
@@ -40,7 +38,7 @@
                             <input data-attr="input" data-bind="value: $root.getFileUrl($data, $parent)" disabled="disabled"/>
                             <div class="asset-panel" data-bind="attr:{ dataUrl: $root.getFileUrl($data, $parent) }">
                                 <a data-option="copy" href="#" class="fa fa-files-o" title="Copy URL to clipboard"></a>
-                                <a data-option="download" href="#" class="fa fa-floppy-o" title="Save file to disk"></a>
+                                <a data-option="download" href="#" class="fa fa-floppy-o" title="Save file to disk" data-bind="visible: false"></a>
                             </div>
                         </assets>
                     </div>
@@ -88,7 +86,8 @@
             </library>
         </page>
         <page id="about" data-bind="visible: page() === 'about'">
-            <div>This extension is created by A</div>
+            <div>This extension are using public <a href-"https://github.com/jsdelivr/api">jsDelivr API</a> for all its data. Right now only <a href="http://www.jsdelivr.com/">jsDelivr CDN</a> are supported.</div>
+            <div>The code of this extension are available at <a href="https://github.com/dnbard/brackets-cdn">its repository</a>. This extension distributed freely without any warranties. If you find any errors then you can report them at <a href="https://github.com/dnbard/brackets-cdn/issues">issue board</a>. Before reporting any issues please make sure that this issue aren't specific to your system configuration (in example: when some extension are ruining Brackets IDE enviropment).</div>
         </page>
     </div>
 </div>
