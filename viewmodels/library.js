@@ -49,7 +49,7 @@ define(function(require, exports, module){
             filename = sections[sections.length - 1];
 
             if (filename.indexOf('.js') !== -1){
-                return _.template('<script src="${url}"></script>',{
+                return _.template('<script type="text/javascript" src="${url}"></script>',{
                     url: url
                 });
             } else if (filename.indexOf('.css') !== -1){

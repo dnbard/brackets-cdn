@@ -1,10 +1,21 @@
 define(function(require, exports, module){
     var libs = require('../services/libraryProvider'),
         storage = require('../services/libraryStorage'),
+        NodeConnection = brackets.getModule('utils/NodeConnection'),
+        ExtensionUtils = brackets.getModule('utils/ExtensionUtils'),
         API = require('../services/api'),
         LibraryViewModel = require('./library'),
         ko = libs.require('ko'),
-        _ = libs.require('lodash');
+        _ = libs.require('lodash'),
+        nodeConnection = new NodeConnection();
+
+    var path = ExtensionUtils.getModulePath(module, 'node/clipboard');
+    nodeConnection.connect(true).then(function(){
+        nodeConnection.loadDomains([path], true)
+            .then(function(){
+                nodeConnection.domains.clipboard.load();
+            });
+    });
 
     function AppViewModel(){
         var self = this;
@@ -109,6 +120,13 @@ define(function(require, exports, module){
                     }
 
                     break;
+                case 'A':
+                    var handler = target.attr('data-option');
+
+                    if (self.handlers[handler]){
+                        self.handlers[handler](target, event);
+                    }
+                    break;
             }
 
             return true;
@@ -117,6 +135,16 @@ define(function(require, exports, module){
         this.setToLibraryPage = function(id){
             this.library.id(id);
             this.page('library');
+        }
+
+        this.handlers = {
+            'copy': function(target, event){
+                var url = target.parent().attr('dataurl');
+                nodeConnection.domains.clipboard.callCopy(url);
+            },
+            'download': function(target, event){
+
+            }
         }
     }
 

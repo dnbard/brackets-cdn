@@ -15,9 +15,14 @@
     transition: 0.25s all;
 }
 
-.ext_cdn .modal-header .fa:hover{
+.ext_cdn .modal-header a{
+    color: white;
+}
+
+.ext_cdn .modal-header .fa:hover, .ext_cdn .modal-header a:hover{
     color: #288cdf;
     opacity: 0.85;
+    text-decoration: none;
 }
 
 .ext_cdn .modal-header .fa.disabled, .ext_cdn .modal-header .fa.disabled:hover{
@@ -94,6 +99,33 @@
     text-decoration: none;
 }
 
+.ext_cdn assets{
+    position: relative;
+}
+
+.ext_cdn assets > .asset-panel{
+    position: absolute;
+    display: none;
+    top: -2px;
+    left: 1px;
+    border-radius: 2px;
+    padding: 2px 5px;
+    box-shadow: none;
+    border: none;
+    width: auto;
+    min-width: 0;
+    background-color: #f0f0f0;
+    font-size: 14pt;
+}
+
+.dark .ext_cdn assets > .asset-panel{
+    background-color: #222;
+}
+
+.ext_cdn assets:hover > .asset-panel{
+    display: block;
+}
+
 .ext_cdn assets input{
     width: 98%;
     margin: 2px 8px;
@@ -129,7 +161,16 @@
     height: 100%;
 }
 
-.ext_cdn page#library{
+.ext_cdn page#library, .ext_cdn page#about{
     padding: 1px 13px;
     overflow-y: auto;
+}
+
+.ext_cdn page#about{
+    font-size: 16pt;
+}
+
+.ext_cdn page#about > div{
+    margin: 5px 0 17px 0;
+    line-height: 24px;
 }

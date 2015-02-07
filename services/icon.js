@@ -7,7 +7,7 @@ define(function(require, exports, module){
         var imagePath = config.path + 'images/icon.png';
         icon = $('<a class="fa fa-cogs" id="'+ id +'"></a>');
 
-        icon.css('color', 'red');
+        icon.css('color', 'pink');
         icon.css('font-size', '18pt');
         icon.appendTo($("#main-toolbar .buttons"));
     }
