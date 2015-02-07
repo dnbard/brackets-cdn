@@ -3,11 +3,11 @@
 "title": "CDN Finder",
 "description": "Search for javascript libraries, jQuery plugins, fonts, CSS frameworks and anything else you might need. You can submit own library.",
 "homepage": "https://github.com/dnbard/brackets-cdn",
-"version": "0.1.0",
+"version": "0.1.1",
 "author": "Alex Bardanov",
 "license": "MIT",
 "engines": {
-    "brackets": ">=0.32.0"
+    "brackets": ">=0.44.0"
 },
 "keywords": ["CDN", "library", "framework", "CSS", "plugin", "font"]
 }
